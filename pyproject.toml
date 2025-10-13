@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "AutoPrinter"
+version = "1.0.0"
+description = "Windows auto printer based on directory watcher"
+readme = "README.md"
+packages = [{include = "src"}]
+
+
+[tool.poetry.dependencies]
+watchdog = "6.0.0"
+python = "^3.11.8"
+argparse ="1.4.0"
+pywin32 = "311"
+pydantic-settings = "2.11.0"
+pillow="11.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest-cov = "^6.1.1"
+pytest-asyncio= "^0.21.0"
+flake8 = "^7.2.0"
+pypdfium2= "4.30.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.flake8]
+max-line-length = 79
+exclude = [
+    "./test/*",
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "*.egg-info",
+    "build",
+    "dist",
+    "resources",
+]
+
+[tool.black]
+line-length = 79
+target-version = ['py39']
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
