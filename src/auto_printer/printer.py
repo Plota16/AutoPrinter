@@ -263,5 +263,5 @@ class Printer:
         abs_file_path = self._wait_for_pdf(file_path)
 
         # Print the PDF
-        # self._print_pdf_direct(abs_file_path, target_printer)
+        self._print_pdf_direct(abs_file_path, target_printer)
         logger.info(f"✓ Sent '{abs_file_path}' to printer: {target_printer} (A4 format)")

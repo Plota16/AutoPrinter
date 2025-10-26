@@ -58,7 +58,11 @@ class DirectoryWatcherEventHandler(FileSystemEventHandler):
                 return
 
             try:
+                time.sleep(2)
                 self.printer.print_file(event.src_path)
+                time.sleep(2)
+                if os.path.exists(event.src_path):
+                    os.remove(event.src_path)
                 self.processed_files.clear()
             except Exception as e:
                 logger.error(f"Failed to print {event.src_path}: {e}")
